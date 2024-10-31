@@ -1,16 +1,11 @@
 import numpy as np
-import time
 from openpyxl import Workbook
-import pandas as pd
-##arr = np.zeros((5,5))
-##limit = arr.shape[0]
-##row_range = np.arange(0, limit)
-##for n, row in enumerate(arr):
-##    for cell in row_range:
-##        arr[n, cell] = (cell + 1)**n
-##print(row_range)
+
 
 def populate_array(arr_shape:tuple):
+    '''This function takes an input in the form of a tuple that defines the shape of 
+    the numpy array to be created.
+    '''
     arr = np.zeros(arr_shape)
     limit = arr.shape[0]
     row_range = np.arange(0, limit)
@@ -22,6 +17,8 @@ def populate_array(arr_shape:tuple):
 my_array = populate_array(arr_shape=(10,10))
 
 def write_table(arr:np.array):
+    '''this function writes the contents of the previously created
+    numpy array to an excel through openpyxl'''
     wb = Workbook()
     ws = wb.active
     try:
